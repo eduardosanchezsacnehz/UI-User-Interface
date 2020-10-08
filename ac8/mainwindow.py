@@ -1,4 +1,5 @@
 from PySide2.QtWidgets import QMainWindow
+from PySide2.QtCore import Slot
 from ui_mainwindows import Ui_MainWindow
 
 class MainWindow(QMainWindow):
@@ -6,3 +7,9 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         ui = Ui_MainWindow()
         ui.setupUi(self)
+
+        ui.pushButton.clicked.connect(self.click_agregar)
+
+    @Slot()
+    def click_agregar(self):
+        print('click')
