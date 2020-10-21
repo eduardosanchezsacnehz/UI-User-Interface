@@ -1,9 +1,4 @@
-from libro import Particula
-
 import math
 
-class distancia_ecualidiana:
-    def distancia_ecualidiana(x1, y1, x2, y2):
-        self.__distancia = math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))
-
-print(distancia)
+def distancia_euclidiana(origen_x, origen_y, destino_x, destino_y):
+   return math.sqrt((destino_x - origen_x)**2 + (destino_y - origen_y)**2)
