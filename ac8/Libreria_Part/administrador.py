@@ -1,4 +1,4 @@
-from .particula import Particula
+from particula import Particula
 
 class Administrador:
     def __init__(self):
