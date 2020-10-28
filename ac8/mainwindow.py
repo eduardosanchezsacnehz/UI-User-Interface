@@ -1,6 +1,8 @@
 from PySide2.QtWidgets import QMainWindow
 from PySide2.QtCore import Slot
-from ui_mainwindows import Ui_MainWindow
+from ui_mainwindow import Ui_MainWindow
+from Libreria_Part.administrador import Administrador
+from Libreria_Part.particula import Particula
 
 class MainWindow(QMainWindow):
     def __init__(self):
