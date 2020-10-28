@@ -8,7 +8,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.ui.agrega_final_pushButton.clicked.connect(self.click_agregar)
+        self.ui.agregar_final_pushButton.clicked.connect(self.click_agregar)
 
     @Slot()
     def click_agregar(self):
@@ -21,3 +21,4 @@ class MainWindow(QMainWindow):
         red = self.ui.red_spinBox.value()
         green = self.ui.green_spinBox.value()
         blue = self.ui.blue_spinBox.value()
+
