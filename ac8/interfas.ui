@@ -121,33 +121,57 @@
        <item row="7" column="1">
         <widget class="QSpinBox" name="red_spinBox">
          <property name="maximum">
-          <number>500</number>
+          <number>255</number>
          </property>
         </widget>
        </item>
        <item row="8" column="1">
-        <widget class="QSpinBox" name="spinBox_2"/>
+        <widget class="QSpinBox" name="green_spinBox">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
        </item>
        <item row="9" column="1">
-        <widget class="QSpinBox" name="spinBox_3"/>
+        <widget class="QSpinBox" name="blue_spinBox">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QSpinBox" name="spinBox"/>
+        <widget class="QSpinBox" name="origen_x_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QSpinBox" name="spinBox_4"/>
+        <widget class="QSpinBox" name="origen_y_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QSpinBox" name="spinBox_5"/>
+        <widget class="QSpinBox" name="destino_x_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QSpinBox" name="spinBox_6"/>
+        <widget class="QSpinBox" name="destino_y_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit"/>
+     <widget class="QPlainTextEdit" name="salida"/>
     </item>
    </layout>
   </widget>
