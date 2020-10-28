@@ -8,7 +8,7 @@ class MainWindow(QMainWindow):
         ui = Ui_MainWindow()
         ui.setupUi(self)
 
-        ui.pushButton.clicked.connect(self.click_agregar)
+        ui.agrega_final_pushButton.clicked.connect(self.click_agregar)
 
     @Slot()
     def click_agregar(self):
