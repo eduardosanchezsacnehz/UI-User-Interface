@@ -1,4 +1,5 @@
-from particula import Particula
+from .particula import Particula
+import json 
 
 class Administrador:
     def __init__(self):
@@ -19,11 +20,21 @@ class Administrador:
             str(particula) + '\n' for particula in self.__particulas
         )
 
+    def guardar (self, ubicacion):
+        try:
+            with open(ubicacion, 'w') as archivo:
+                lista = [particula.to_dict() for particula in self.__particulas]
+                print (lista)
+                json.dump(lista, archivo, indent=5)
+            return 1
+        except:
+            return 0
 
-#l01 = Particula(id="9083427", origen_x="34", origen_y="102", destino_x="105", destino_y="241", velocidad="123", red="65",  green="232", blue="250", distancia="")
-#l02 = Particula(id="8834432", origen_x="43", origen_y="12", destino_x="210", destino_y="20", velocidad="43", red="125",  green="221", blue="210", distancia="")
-#Administrador = Administrador()
-#Administrador.agregar_final(l01)
-#Administrador.agregar_inicio(l02)
-#Administrador.agregar_inicio(l01)
-#Administrador.mostar()
+    def abrir (self, ubicacion):
+        try:
+            with open (ubicacion, 'r') as archivo:
+                lista = json.load(archivo)
+                self.__particulas = [Particula(**particula) for particula in lista]
+            return 1
+        except:
+            return 0
