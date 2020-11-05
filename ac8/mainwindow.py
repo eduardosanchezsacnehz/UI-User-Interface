@@ -35,11 +35,6 @@ class MainWindow(QMainWindow):
         particula = Particula(id, origen_x, origen_y, destino_x, destino_y, velocidad, red, green, blue)
         self.administrador.agregar_final(particula)
 
-
-        #print (id, origen_x, origen_y, destino_x, destino_y, velocidad, red, green, blue)
-        #self.ui.salida.insertPlainText (id + str(origen_x) + str(origen_y) + str(destino_x) + str(destino_y) + 
-        #velocidad + str(red) + str(green) + str(blue))
-
     @Slot()
     def click_agregar_inicio(self):
         id = self.ui.id_lineEdit.text()
@@ -54,3 +49,25 @@ class MainWindow(QMainWindow):
 
         particula = Particula(id, origen_x, origen_y, destino_x, destino_y, velocidad, red, green, blue)
         self.administrador.agregar_inicio(particula)
+
+     @Slot()
+    def action_guardar_archivo(self):
+        ubicacion = QFileDialog.getSaveFileName(
+            self,
+            'Guardar Archivo',
+            '.',
+            'JSON (*.json)'
+        )[0]
+        print (ubicacion)
+        if self.administrador.guardar(ubicacion):
+            QMessageBox.information(
+                self,
+                "Éxito",
+                "Se pudo crear el archivo" + ubicacion
+            )
+        else:
+            QMessageBox.critical(
+                self,
+                "Error",
+                "No se pudo crear el archivo"
+            )
