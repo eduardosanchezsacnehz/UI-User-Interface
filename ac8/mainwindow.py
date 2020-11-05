@@ -71,3 +71,23 @@ class MainWindow(QMainWindow):
                 "Error",
                 "No se pudo crear el archivo"
             )
+        @Slot()
+    def action_abrir_archivo(self):
+        ubicacion = QFileDialog.getOpenFileName(
+            self,
+            'Abrir Archivo',
+            '.',
+            'JSON (*.json)'
+        )[0]
+        if self.administrador.abrir(ubicacion):
+            QMessageBox.information(
+                self,
+                "Éxito",
+                "Se abrió el archivo" + ubicacion
+            )
+        else:
+            QMessageBox.critical(
+                self,
+                "Error",
+                "Error al abrir el archivo" + ubicacion
+            )
