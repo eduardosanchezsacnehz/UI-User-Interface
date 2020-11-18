@@ -1,5 +1,5 @@
-from .particula import Particula
-import json 
+import json
+from particula import Particula
 
 class Administrador:
     def __init__(self):
