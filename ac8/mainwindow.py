@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QMainWindow
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem
 from PySide2.QtCore import Slot
 from ui_mainwindows import Ui_MainWindow
 from Libreria_Part.administrador import Administrador
@@ -13,9 +13,19 @@ class MainWindow(QMainWindow):
         self.ui.agregar_final_pushButton.clicked.connect(self.click_agregar)
         self.ui.agregar_inicio_pushButton.clicked.connect(self.click_agregar_inicio)
         self.ui.mostrar_pushButton.clicked.connect(self.click_mostrar)
-                self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
+        self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
         self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
 
+
+   @Slot()
+    def tabla_mostrar(self):
+        self.ui.tabla.setColumnCount(10)
+        headers = ["Id", "Origen en x", "Origen en y", "Destino en x", "Destino en y", "Velocidad", "Distancia", "Red", "Green", "Blue"]
+        self.ui.tabla.setHorizontalHeaderLabels(headers)
+        self.ui.tabla.setRowCount(len(self.mainclass))
+
+        row = 0
+        
     @Slot()
     def click_mostrar(self):
         self.ui.salida.clear()
