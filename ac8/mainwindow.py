@@ -16,8 +16,10 @@ class MainWindow(QMainWindow):
         self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
         self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
 
+        self.ui.tabla_mostrar_pushButton.clicked.connect(self.tabla_mostrar)
+        self.ui.tabla_buscar_pushButton.clicked.connect(self.tabla_buscar)
 
-   @Slot()
+    @Slot()
     def tabla_mostrar(self):
         self.ui.tabla.setColumnCount(10)
         headers = ["Id", "Origen en x", "Origen en y", "Destino en x", "Destino en y", "Velocidad", "Distancia", "Red", "Green", "Blue"]
@@ -25,7 +27,7 @@ class MainWindow(QMainWindow):
         self.ui.tabla.setRowCount(len(self.mainclass))
 
         row = 0
-for particula in self.mainclass:
+        for particula in self.mainclass:
             id_widget = QTableWidgetItem(particula.id)
             origen_x_widget = QTableWidgetItem(str(particula.origen_x))
             origen_y_widget = QTableWidgetItem(str(particula.origen_y))
@@ -85,6 +87,14 @@ for particula in self.mainclass:
                 self.ui.tabla.setItem(0, 9, green_widget)
                 self.ui.tabla.setItem(0, 10, blue_widget)
 
+                encontrado = True
+                return
+        if not encontrado:
+            QMessageBox.warning(
+                self,
+                "Atención",
+                f"La partícula con el id '{id}' no ha sido encontrada"
+            )
 
     @Slot()
     def click_mostrar(self):
