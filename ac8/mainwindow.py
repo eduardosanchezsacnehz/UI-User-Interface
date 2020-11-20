@@ -18,6 +18,16 @@ class MainWindow(QMainWindow):
 
         self.ui.tabla_mostrar_pushButton.clicked.connect(self.tabla_mostrar)
         self.ui.tabla_buscar_pushButton.clicked.connect(self.tabla_buscar)
+        self.ui.dibujar.clicked.connect(self.dibujar)
+        self.ui.limpiar.clicked.connect(self.limpiar)
+
+    @Slot()
+    def dibujar (self):
+        print ('dibujar')
+
+    @Slot()
+    def limpiar (self):
+        print ('limpiar')
 
     @Slot()
     def tabla_mostrar(self):
