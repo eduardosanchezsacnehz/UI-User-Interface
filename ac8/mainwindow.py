@@ -28,11 +28,13 @@ class MainWindow(QMainWindow):
     @Slot()
     def dibujar (self):
         pen = QPen ()
-        pen.setWidth(8)
-        self.scene.addEllipse(1,1,2,2, pen)
-        self.scene.addEllipse(50,50,5,5, pen)
-        self.scene.addLine(3,3,5,5, pen)
+         pen.setWidth(3)
 
+        r = 121
+        g = 232
+        b = 432
+        color = QColor(r, g, b)
+        pen.setColor(color)
     @Slot()
     def limpiar (self):
         print ('limpiar')
