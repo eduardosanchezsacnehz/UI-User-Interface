@@ -28,16 +28,16 @@ class MainWindow(QMainWindow):
     @Slot()
     def dibujar (self):
         pen = QPen ()
-         pen.setWidth(3)
-
+        pen.setWidth(3)
         r = 121
         g = 232
         b = 432
         color = QColor(r, g, b)
         pen.setColor(color)
+
     @Slot()
     def limpiar (self):
-        print ('limpiar')
+        self.scene.clear()
 
     @Slot()
     def tabla_mostrar(self):
