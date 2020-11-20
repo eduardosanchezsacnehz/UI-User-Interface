@@ -3,6 +3,7 @@ from PySide2.QtCore import Slot
 from ui_mainwindows import Ui_MainWindow
 from Libreria_Part.administrador import Administrador
 from Libreria_Part.particula import Particula
+from PySide2.QtGui import QPen, QColor, QTransform
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -21,9 +22,16 @@ class MainWindow(QMainWindow):
         self.ui.dibujar.clicked.connect(self.dibujar)
         self.ui.limpiar.clicked.connect(self.limpiar)
 
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+
     @Slot()
     def dibujar (self):
-        print ('dibujar')
+        pen = QPen ()
+        pen.setWidth(8)
+        self.scene.addEllipse(1,1,2,2, pen)
+        self.scene.addEllipse(50,50,5,5, pen)
+        self.scene.addLine(3,3,5,5, pen)
 
     @Slot()
     def limpiar (self):
