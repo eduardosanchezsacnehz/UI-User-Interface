@@ -46,10 +46,10 @@ class MainWindow(QMainWindow):
         particula = []
         for particula in self.administrador:
             particula.append(particula)
-                particula.sort(key = lambda particula: particula.id)
+            particula.sort(key = lambda particula: particula.id, reverse=False))
 
         row = 0
-        for particula in self.administrador:
+        for particula in particulas:
             id_widget = QTableWidgetItem(particula.id)
             origen_x_widget = QTableWidgetItem(str(particula.origen_x))
             origen_y_widget = QTableWidgetItem(str(particula.origen_y))
@@ -75,7 +75,8 @@ class MainWindow(QMainWindow):
             row += 1
 
         for  particula in particulas:
-            self.ui.salida.insertPlainText(str(self.administrador))
+            self.ui.salida.insertPlainText(str(particula))
+            
     @Slot()
     def action_ordenar_distancia(self):
         print ('ordenar distancia')
