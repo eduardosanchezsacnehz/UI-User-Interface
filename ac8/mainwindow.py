@@ -37,17 +37,45 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def action_ordenar_id(self):
-                self.ui.print.clear()
+        self.ui.salida.clear()
         self.ui.tabla.clear()
         headers = ["Id", "Origen_x", "Origen_y", "Destino_x", "Destino_y", "Velocidad", "Red", "Green", "Blue", "Distancia"]
         self.ui.tabla.setHorizontalHeaderLabels(headers)
         self.ui.tabla.setRowCount(len(self.administrador))
 
-        particulas = []
+        particula = []
         for particula in self.administrador:
-            particulas.append(particula)
-        self.particulas.sort(key = lambda particula: particula.id)        
-        
+            particula.append(particula)
+                particula.sort(key = lambda particula: particula.id)
+
+        row = 0
+        for particula in self.administrador:
+            id_widget = QTableWidgetItem(particula.id)
+            origen_x_widget = QTableWidgetItem(str(particula.origen_x))
+            origen_y_widget = QTableWidgetItem(str(particula.origen_y))
+            destino_x_widget = QTableWidgetItem(str(particula.destino_x))
+            destino_y_widget = QTableWidgetItem(str(particula.destino_y))
+            velocidad_widget = QTableWidgetItem(particula.velocidad)
+            red_widget = QTableWidgetItem(str(particula.red))
+            green_widget = QTableWidgetItem(str(particula.green))
+            blue_widget = QTableWidgetItem(str(particula.blue))
+            distancia_widget = QTableWidgetItem(str(particula.distancia))
+
+            self.ui.tabla.setItem (row, 0, id_widget)
+            self.ui.tabla.setItem (row, 1, origen_x_widget)
+            self.ui.tabla.setItem (row, 2, origen_y_widget)
+            self.ui.tabla.setItem (row, 3, destino_x_widget)
+            self.ui.tabla.setItem (row, 4, destino_y_widget)
+            self.ui.tabla.setItem (row, 5, velocidad_widget)
+            self.ui.tabla.setItem (row, 6, red_widget)
+            self.ui.tabla.setItem (row, 7, green_widget)
+            self.ui.tabla.setItem (row, 8, blue_widget)
+            self.ui.tabla.setItem (row, 9, distancia_widget)
+
+            row += 1
+
+        for  particula in particulas:
+            self.ui.salida.insertPlainText(str(self.administrador))
     @Slot()
     def action_ordenar_distancia(self):
         print ('ordenar distancia')
