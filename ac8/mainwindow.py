@@ -37,8 +37,12 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def action_ordenar_id(self):
-        print ('ordenar id')
-
+                self.ui.print.clear()
+        self.ui.tabla.clear()
+        headers = ["Id", "Origen_x", "Origen_y", "Destino_x", "Destino_y", "Velocidad", "Red", "Green", "Blue", "Distancia"]
+        self.ui.tabla.setHorizontalHeaderLabels(headers)
+        self.ui.tabla.setRowCount(len(self.administrador))
+        
     @Slot()
     def action_ordenar_distancia(self):
         print ('ordenar distancia')
